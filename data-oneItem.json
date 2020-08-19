@@ -1,0 +1,152 @@
+[
+    {
+        "val1": [
+            {
+                "task": "T0",
+                "task_label": null,
+                "value": [
+                    {
+                        "task": "T1",
+                        "task_label": "**CAPTION/TITLE**\n\n**Is there a caption?** Click the tool below to draw a rectangle around it, then transcribe the text.",
+                        "value": [
+                            {
+                                "x": 456.6560363769531,
+                                "y": 785.6516723632812,
+                                "tool": 0,
+                                "frame": 0,
+                                "width": 770.0279235839844,
+                                "height": 73.65484619140625,
+                                "details": [
+                                    {
+                                        "value": "Arcade Building at the zoo, Springfield, Ill."
+                                    }
+                                ],
+                                "tool_label": "Caption/Title"
+                            }
+                        ]
+                    },
+                    {
+                        "task": "T2",
+                        "value": "",
+                        "task_label": "\n**No caption?** Then devise a brief, descriptive title for the postcard image, e.g. Boy milking cow"
+                    }
+                ]
+            },
+            {
+                "task": "T3",
+                "task_label": "**OTHER DATA**\n\nMark and transcribe if present:\n* Production number -- numeric or alphanumeric code, typically in lower corner\n* Publisher -- rarely present; transcribe from image, it will be standardized to authorized forms later\n* Date -- rarely present; typically a copyright date",
+                "value": [
+                    {
+                        "x": 79.45396423339844,
+                        "y": 1011.0801391601562,
+                        "tool": 0,
+                        "frame": 0,
+                        "width": 62.495025634765625,
+                        "height": 53.56707763671875,
+                        "details": [
+                            {
+                                "value": "933"
+                            }
+                        ],
+                        "tool_label": "Production number"
+                    },
+                    {
+                        "x": 168.73255920410156,
+                        "y": 1011.0801391601562,
+                        "tool": 1,
+                        "frame": 0,
+                        "width": 256.6759796142578,
+                        "height": 49.10321044921875,
+                        "details": [
+                            {
+                                "value": "V.O. Hammon Pub. Co."
+                            }
+                        ],
+                        "tool_label": "Publisher"
+                    }
+                ]
+            },
+            {
+                "task": "T4",
+                "task_label": null,
+                "value": [
+                    {
+                        "task": "T5",
+                        "value": [
+                            {
+                                "select_label": "select state:",
+                                "option": true,
+                                "value": "IL",
+                                "label": "Illinois"
+                            }
+                        ]
+                    },
+                    {
+                        "task": "T6",
+                        "value": "Springfield",
+                        "task_label": "enter U.S. city name:"
+                    },
+                    {
+                        "task": "T7",
+                        "value": "",
+                        "task_label": "For **non-U.S. locations**, enter country name:"
+                    },
+                    {
+                        "task": "T8",
+                        "value": "",
+                        "task_label": "enter non-U.S. city name:"
+                    }
+                ]
+            },
+            {
+                "task": "T14",
+                "task_label": null,
+                "value": [
+                    {
+                        "task": "T15",
+                        "value": [
+                            {
+                                "select_label": "Category:",
+                                "option": true,
+                                "value": "8036116db38e7",
+                                "label": "Parks & gardens"
+                            }
+                        ]
+                    },
+                    {
+                        "task": "T16",
+                        "value": "Zoos",
+                        "task_label": "**Then,** add up to three specific subject headings, one per field, e.g. Girls; Windmills; Caricatures\n\nSubject 1:"
+                    },
+                    {
+                        "task": "T12",
+                        "value": "",
+                        "task_label": "Subject 2:"
+                    },
+                    {
+                        "task": "T13",
+                        "value": "",
+                        "task_label": "Subject 3:"
+                    }
+                ]
+            }
+        ],
+        "val2": {
+            "35424279": {
+                "retired": {
+                    "id": 57692094,
+                    "workflow_id": 11665,
+                    "classifications_count": 3,
+                    "created_at": "2020-03-16T17:44:06.394Z",
+                    "updated_at": "2020-08-04T15:18:03.546Z",
+                    "retired_at": "2020-08-04T15:18:03.535Z",
+                    "subject_id": 35424279,
+                    "retirement_reason": "classification_count"
+                },
+                "SUBJECT": "693",
+                "FILENAME": "VO933_o3.jpg"
+            }
+        },
+        "id": 35424279
+    }
+]
