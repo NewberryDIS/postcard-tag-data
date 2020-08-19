@@ -1,22 +1,28 @@
 import csv, json
 
+# the main array that will be stuffed with data and exported to tsv
 itemData = []
 
-# in this script's original run, there were some non-ascii characters which I manually replaced.  
-# if there's a non-ascii error, search the dataset for [^\x00-\x7f] and manually fix;
-# if there are more than a handful, we can add a substitution to the script.
+# used to check for a key's existence before attempting to add its value.
+# state_l and state_v were sometimes not present, so I sent the key/value pair to this function
+# I expected to have to refactor the entire script to use this function, but no other k/v's required intervention
 
 def checkKey (array, key, deposit):
     if array.has_key(key): 
         deposit = array[key]
 
+# input file needs to be formatted as described in README.
+
 with open('databig.json') as json_file:
     items = json.load(json_file)
-    index = 0
+    # basic counter, just used in the print line 
+    counter = 0
     for j in items:
         id = j['id']
-        index += 1
+        counter += 1
+        # to access the field where the id is the key, the id has to be a string
         str_id = str(id)
+        # for checkKey to work, we had to declare the itemObj keys; ended up being unnecessary, could've just done state_l and state_v
         itemObj = {
             'id': id,
             'title': '',
@@ -39,6 +45,31 @@ with open('databig.json') as json_file:
             'incorrect_orientation_T21': '',
             'other_info_T22': '',
         }
+        # each field is buried in levels of T0-22.  
+        # T0:
+        #   T1: caption/title
+        # T3:
+        #    production number
+        #    publisher
+        #    date
+        # T4:
+        #   T5: US state
+        #   T6: US city
+        #   T7: non-US location (country/region)
+        #   T8: non-US city
+        #   T18: body of water
+        #   T19: a checkbox indicating that there is no location provided; Not checked is NULL (*None* in python); checked is "Unidentified"; 
+        # T9: 
+        #   T10: "category"; specifics unclear
+        #   T11: keyword/subject; specifics unclear
+        # T14: 
+        #   T12: subject; specifics unclear
+        #   T13: subject; specifics unclear
+        #   T15: category; specifics unclear
+        #   T16: subject; specifics unclear
+        # T20: 
+        #   T21: postcard scan is incorrected oriented; requires rotation
+        #   T22: "other info"; in the dataset, T22 always preceded T21.
         for e in j['val1']:
             if e['task'] == 'T0':
                 for n in e['value']:
@@ -92,8 +123,10 @@ with open('databig.json') as json_file:
                         itemObj['incorrect_orientation_T21'] = n['value']
                     if n['task'] == 'T22': 
                         itemObj['other_info_T22'] = n['value']
-        print(str(index) + ': ' + str_id)
+        # filename is the only data currently taken from "val2"
         itemObj['filename'] = j['val2'][str_id]['FILENAME']
+        # keep track of script while it runs
+        print(str(counter) + ': ' + str_id)
         itemData.append(itemObj)
 
 with open('output.tsv', 'w') as output_file:
